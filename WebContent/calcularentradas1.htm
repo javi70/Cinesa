@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="utf-8">
+
+<title>Calcular entrada cine</title>
+
+<meta name="description" content="Pagina que calcula el precio de una entrada de cine">
+
+<meta name="author" content="Javi">
+
+<link rel="stylesheet" type="text/css" href="css/cine1.css">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+	<section id="calcular_entrada">
+		<form name="formulario" method="post">
+		<header>
+			<h1>!Calcula tu entrada!</h1>
+		</header>
+		
+		<div id="selectores">
+			<div id="cuadrodias">
+				<label for="listaDias">Dia:</label>
+				<select id="listaDias" name="listaDias" onchange="calcularEntrada(listaDias.value,edad.value);">
+					<option value="lunes">Lunes</option>
+					<option value="martes" selected="selected">Martes</option>
+					<option value="miercoles">Miércoles</option>
+					<option value="jueves">Jueves</option>
+					<option value="viernes">Viernes</option>
+					<option value="sabado">Sábado</option>
+					<option value="domingo">Domingo</option>
+				</select>
+			</div>
+			<div id="cuadroEdad">
+				<label for="edad">Edad:</label>
+				<input type="text" id="edad" name="edad" 
+						onkeypress="return justNumbers(event);"
+						onchange="calcularEntrada(listaDias.value,edad.value);" 
+						maxlength="2" value="16" required title="Debes escribir la edad" 
+						placeholder="0-99" pattern="[0-9]{1,2}"/>
+			</div>
+		</div>		
+					
+		<footer>
+			<span>PRECIO</span>
+			<output id="precio" name="precio">2€</output>				
+		</footer>
+		</form>
+	</section>
+<script src="js/cine1.js"></script>
+
+</body>
+
+</html>
